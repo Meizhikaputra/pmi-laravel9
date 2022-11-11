@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Models;
+
+
+class Post
+{
+    private static $blog_posts = [
+        [
+            "title" => "Judul Posts Pertama",
+            "slug" => "judul-post-pertama",
+            "author" => "Meizhika Putra",
+            "body" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, ducimus? Est explicabo sequi accusantium neque ut repellendus incidunt dolor deserunt porro et magni nemo cum, distinctio quaerat libero molestiae autem, veritatis unde doloremque praesentium delectus beatae enim? Placeat sunt delectus tempore, minima consequuntur dolore labore rerum incidunt voluptatibus praesentium quae vero facilis deleniti quis dolores, impedit dolorem necessitatibus et ut pariatur blanditiis consectetur voluptate quisquam! Autem accusantium natus beatae id impedit, sint fugit, quos consectetur nostrum nemo eius odit facere?"
+        ],
+        [
+            "title" => "Judul Posts Kedua",
+            "slug" => "judul-post-kedua",
+            "author" => "Selly Apriana Aminudin",
+            "body" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, ducimus? Est explicabo sequi accusantium neque ut repellendus incidunt dolor deserunt porro et magni nemo cum, distinctio quaerat libero molestiae autem, veritatis unde doloremque praesentium delectus beatae enim? Placeat sunt delectus tempore, minima consequuntur dolore labore rerum incidunt voluptatibus praesentium quae vero facilis deleniti quis dolores, impedit dolorem necessitatibus et ut pariatur blanditiis consectetur voluptate quisquam! Autem accusantium natus beatae id impedit, sint fugit, quos consectetur nostrum nemo eius odit facere?minima consequuntur dolore labore rerum incidunt voluptatibus praesentium quae vero facilis deleniti quis dolores, impedit dolorem necessitatibus et ut pariatur blanditiis consectetur voluptate quisquam! Autem accusantium natus beatae id impedit, sint fugit, quos consectetur nostrum nemo eius odit facere?"
+        ]
+    ];
+
+    public static function all()
+    {
+        return collect(self::$blog_posts);
+    }
+
+    public static function find($slug)
+    {
+        $posts = static::all();
+
+        return $posts->firstWhere('slug', $slug);
+    }
+}
